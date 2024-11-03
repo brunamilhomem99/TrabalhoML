@@ -37,20 +37,14 @@ def converter_para_numpy(matrix):
 # -------------------- Funções de Cálculo de Similaridade & Previsão --------------------
 
 def calcular_similaridade(matriz):
-    """(TODO) Calcula a similaridade entre usuários ou filmes."""
     # Usando a função cosine_similarity do scikit-learn
     similaridade = cosine_similarity(matriz)
-
-    #  similaridade de cosseno manualmente com numpy usando a definição matemática: A.B / (||A||.||B||)
-    #norm = np.linalg.norm(matriz, axis=1)  # Norma de cada vetor (usuário ou filme)
-    #similaridade = np.dot(matriz, matriz.T) / (norm[:, None] * norm[None, :])
 
     return similaridade
 
 # -------------------- Funções de Recomendação & Visualização --------------------
 
 def gerar_recomendacoes(user_id, user_movie_matrix, similaridade, top_n=10):
-    """(TODO) Gera recomendações com base nos cálculos realizados."""
     
     # Verifica se o user_id existe na matriz
     if user_id not in user_movie_matrix.index:
@@ -95,7 +89,6 @@ def main():
     user_movie_array = converter_para_numpy(user_movie_matrix)
     print(f'Dimensões da matriz: {user_movie_array.shape}')
 
-    # TODO: Implementar cálculo de similaridade e geração de recomendações
 
     # Cálculo de similaridade
     similaridade = calcular_similaridade(user_movie_array)
